@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var adapter: AdapterDishes
+    lateinit var dishes: List.
     //falta lista
 
     override fun onCreate(savedInstanceState: Bundle?) {
