@@ -33,9 +33,19 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    //binding
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    val retrofitVersion = "2.11.0"
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    //picasso
+    implementation("com.squareup.picasso:picasso:2.8")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
