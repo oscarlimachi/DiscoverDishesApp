@@ -3,21 +3,23 @@ package com.example.discoverdishesapp
 import com.google.gson.annotations.SerializedName
 
 data class Dish(
-    val id : String,
-    val name : String,
-    val image : String
-    //val ingredients : List<String>,
-    //val instructions : List<String>,
-    // @SerializedName("preparation") val prepTimeMinutes : Int,
-    //val difficulty: String,
-    // val cuisine : String,
-    //calcular el total racion*calorias por racion
-    // val servings : Int,
-    // val caloriesPerServing : Int,
-    //url
-
-    //val rating: Float
+    val id: Int,
+    val name: String,  // Nombre del plato
+    val ingredients: List<String>,  // Ingredientes
+    val instructions: List<String>,  // Instrucciones
+    val prepTimeMinutes: Int,  // Tiempo de preparación
+    val cookTimeMinutes: Int,  // Tiempo de cocción
+    val servings: Int,  // Número de porciones
+    val difficulty: String,  // Dificultad
+    val cuisine: String,  // Tipo de cocina
+    val caloriesPerServing: Int,  // Calorías por porción
+    val tags: List<String>,  // Etiquetas
+    val userId: Int,  // ID del usuario
+    val image: String,  // URL de la imagen
+    val rating: Float,  // Puntuación del plato
+    val reviewCount: Int,  // Número de reseñas
+    val mealType: List<String>  // Tipo de comida (desayuno, cena, etc.)
 )
-data class DishResponse(
-    val result: Result<Dish>
+data class DishSearchResponse(
+    val recipes: List<Dish>
 )
