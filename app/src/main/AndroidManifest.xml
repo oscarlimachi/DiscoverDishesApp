@@ -21,9 +21,6 @@
             android:name=".MakeDish.MakeDishActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateDish.CreateDishActivity"
-            android:exported="false" />
-        <activity
             android:name=".DishesList.DishesListActivity"
             android:exported="false" />
         <activity
