@@ -11,6 +11,8 @@ interface APIService {
 
     @GET("recipes/search")
     suspend fun findDishByName(@Query("q") name: String): DishSearchResponse
+    @GET("recipes/{id}")
+    suspend fun findDishById(@Path("id") id: String): Dish
     companion object{
         //servidor llamada
         fun getInstance() : APIService {

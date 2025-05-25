@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.discoverdishesapp.databinding.ItemFoodBinding
 import com.squareup.picasso.Picasso
 
-class AdapterDishes(var items: List<Dish>): Adapter<DishesViewHolder>() {
+class AdapterDishes(var items: List<Dish>, val onItemClick: (Int)-> Unit): Adapter<DishesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishesViewHolder {
         val binding = ItemFoodBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return DishesViewHolder(binding)
@@ -16,7 +16,9 @@ class AdapterDishes(var items: List<Dish>): Adapter<DishesViewHolder>() {
     override fun onBindViewHolder(holder: DishesViewHolder, position: Int) {
         val dish = items[position]
         holder.render(dish)
-        // landa de pulsar
+        holder.itemView.setOnClickListener {
+            onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {

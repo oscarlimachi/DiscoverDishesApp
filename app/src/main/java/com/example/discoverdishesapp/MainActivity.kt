@@ -1,10 +1,14 @@
 package com.example.discoverdishesapp
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Adapter
 import android.widget.GridLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -32,11 +36,34 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        adapter = AdapterDishes(dishList)
+        adapter = AdapterDishes(dishList,{position->
+            val dish = dishList[position]
+            val intent=Intent(this, DetailActivity::class.java)
+            intent.putExtra("DISH_ID", dish.id)
+            startActivity(intent) })
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(this)
 
         searchDish("a")
+        supportActionBar?.title= "Home"
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_activity_main,menu)
+
+        val menuItem = menu.findItem(R.id.menu_search)
+        val searchView = menuItem.actionView as SearchView
+        searchView.setOnQueryTextListener(object : OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String): Boolean {
+                searchDish(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false            }
+        })
+
+        return true
     }
     fun searchDish(query: String) {
         // Llamada en un hilo secundario
@@ -55,6 +82,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

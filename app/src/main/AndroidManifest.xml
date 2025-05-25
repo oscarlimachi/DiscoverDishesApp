@@ -15,6 +15,12 @@
         android:theme="@style/Theme.DiscoverDishesApp"
         tools:targetApi="31">
         <activity
+            android:name=".Create_Dish_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -25,8 +31,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

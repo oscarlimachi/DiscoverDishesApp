@@ -57,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
             createAccount()
 
         }
+        supportActionBar?.hide()
     }
 
 

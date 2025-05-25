@@ -3,7 +3,7 @@ package com.example.discoverdishesapp
 import com.google.gson.annotations.SerializedName
 
 data class Dish(
-    val id: Int,
+    val id: String, // Se cambia para mejor maniobralidad
     val name: String,  // Nombre del plato
     val ingredients: List<String>,  // Ingredientes
     val instructions: List<String>,  // Instrucciones
