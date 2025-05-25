@@ -29,7 +29,7 @@ class MyDishDAO (private val context: Context) {
 
             }
             val newRowId = db.insert(MyDish.TABLE_NAME,null,values)
-            Log.i("DATABASE", "Inserted a task with id: $newRowId")
+            Log.i("DATABASE", "Inserted a dish with id: $newRowId")
         }catch (e: Exception){
             e.printStackTrace()
         }finally {
@@ -52,7 +52,7 @@ class MyDishDAO (private val context: Context) {
             //which row to update, based on the id
             val selection= "${MyDish.COLUMN_NAME_ID} = ${myDish.id}"
             val count = db.update(MyDish.TABLE_NAME,values,selection,null)
-            Log.i("DATABASE", "Update task with id: ${myDish.id}")
+            Log.i("DATABASE", "Update dish with id: ${myDish.id}")
         }catch (e: Exception){
             e.printStackTrace()
         }finally {
@@ -66,7 +66,7 @@ class MyDishDAO (private val context: Context) {
         try {
             val selection = "${MyDish.COLUMN_NAME_ID}=${myDish.id}"
             val deleteRows = db.delete(MyDish.TABLE_NAME,selection,null)
-            Log.i("DATABASE", "Delete task with id: ${myDish.id}")
+            Log.i("DATABASE", "Delete dish with id: ${myDish.id}")
         }catch (e: Exception){
             e.printStackTrace()
         } finally {
@@ -81,6 +81,7 @@ class MyDishDAO (private val context: Context) {
 
         try {
             val projection = arrayOf(
+                MyDish.COLUMN_NAME_ID,
                 MyDish.COLUMN_NAME_NAME,
                 MyDish.COLUMN_NAME_INGREDIENTS,
                 MyDish.COLUMN_NAME_INSTRUCTIONS,
@@ -124,6 +125,7 @@ class MyDishDAO (private val context: Context) {
         try {
 
             val projection = arrayOf(
+                MyDish.COLUMN_NAME_ID,
                 MyDish.COLUMN_NAME_NAME,
                 MyDish.COLUMN_NAME_INGREDIENTS,
                 MyDish.COLUMN_NAME_INSTRUCTIONS,

@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.discoverdishesapp.DishesList.AdapterDishes
 import com.example.discoverdishesapp.DishesList.DishesListActivity
 import com.example.discoverdishesapp.MakeDish.MakeDishActivity
+import com.example.discoverdishesapp.MyDishes.MyDishesActivity
 
 import com.example.discoverdishesapp.databinding.ActivityMainBinding
 
