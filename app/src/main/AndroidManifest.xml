@@ -15,7 +15,16 @@
         android:theme="@style/Theme.DiscoverDishesApp"
         tools:targetApi="31">
         <activity
-            android:name=".Create_Dish_Activity"
+            android:name=".MyDishesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MakeDishActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateDish.CreateDishActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DishesList.DishesListActivity"
             android:exported="false" />
         <activity
             android:name=".DetailActivity"

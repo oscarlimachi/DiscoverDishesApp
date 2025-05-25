@@ -1,9 +1,10 @@
-package com.example.discoverdishesapp
+package com.example.discoverdishesapp.DishesList
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
+import com.example.discoverdishesapp.Dish
 import com.example.discoverdishesapp.databinding.ItemFoodBinding
 import com.squareup.picasso.Picasso
 

@@ -7,11 +7,66 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:text="Discover Dishes"
+        android:textAlignment="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher_background"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:text="Nombre Usuario"/>
+        <Button
+            style="?attr/materialIconButtonStyle"
+            android:id="@+id/menuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_menu_overflow">
+        </Button>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/dishesList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pincha para lista">
+        </Button>
+        <Button
+            android:id="@+id/createDish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pincha Crear">
+        </Button>
+        <Button
+            android:id="@+id/myDishes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver mis recetas">
+        </Button>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Favoritos"
+        android:textAlignment="center"/>
+
 
 </LinearLayout>
