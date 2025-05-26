@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.discoverdishesapp.DetailActivity.Companion.DISH_ID
 
 import com.example.discoverdishesapp.DishesList.AdapterDishes
 import com.example.discoverdishesapp.DishesList.DishesListActivity
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var adapter: AdapterDishes
     var dishList: List<Dish> = emptyList()
+    companion object{
+        const val USER_NAME = "USER_NAME"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +40,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        supportActionBar?.title= "Home"
+        supportActionBar?.hide()  // Oculta el Action Bar
+
+        //NOMBRE USUARIO
+        val name = intent.getStringExtra(USER_NAME)!!
+        binding.usernameTextView.text = name
+
 
         binding.dishesList.setOnClickListener {
             val intent = Intent(this, DishesListActivity::class.java)
@@ -50,6 +59,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MyDishesActivity::class.java)
             startActivity(intent)
         }
+
+
     }
 
 

@@ -2,6 +2,7 @@ package com.example.discoverdishesapp
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -31,10 +32,31 @@ class DetailActivity : AppCompatActivity() {
             insets
         }
 
+
         //Barra menu
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val id = intent.getStringExtra(DISH_ID)!!
         getDishById(id)
+
+        //invocar a la navegacion y recibir pulsar
+        binding.bottomNavigationView.setOnItemSelectedListener { menuItem->
+            binding.contentIngredients.root.visibility = View.GONE
+            binding.contentInstructions.root.visibility = View.GONE
+            binding.contentDetail.root.visibility = View.GONE
+
+            when(menuItem.itemId){
+                R.id.menuIngredients -> binding.contentIngredients.root.visibility = View.VISIBLE
+                R.id.menuInstructions-> binding.contentInstructions.root.visibility = View.VISIBLE
+                R.id.menuDetails -> binding.contentDetail.root.visibility = View.VISIBLE
+            }
+            true
+        }
+        /*forzamos para a pulsar click para que se oculte*/
+        binding.bottomNavigationView.selectedItemId = R.id.menuIngredients
+
+
+
     }
 
     //recuperamos id para utilar datos
@@ -56,9 +78,9 @@ class DetailActivity : AppCompatActivity() {
     //aqui utilizamos los datos
     fun loadData(){
         supportActionBar?.title=dish.name
-        Picasso.get().load(dish.image).into(binding.prueba1)
-        binding.prueba2.text = dish.name
+        Picasso.get().load(dish.image).into(binding.detailImageView)
 
+        binding.contentIngredients.ingredientsTextView.text = dish.ingredients.joinToString("\n")
     }
 
 

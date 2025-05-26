@@ -45,7 +45,14 @@ class LoginActivity : AppCompatActivity() {
                 if (username == storedUsername && password == storedPassword) {
                     // Si la autenticación es correcta, pasamos a la siguiente actividad
                     val intent = Intent(this, MainActivity::class.java)
+
+                    //pasar nombre de usuario al main
+                    intent.putExtra("USER_NAME",username)
                     startActivity(intent)
+
+
+
+
                     finish()
                 } else {
                     // Si no coinciden, mostramos un mensaje de error
