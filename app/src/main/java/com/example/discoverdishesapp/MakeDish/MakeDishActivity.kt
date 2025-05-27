@@ -2,6 +2,7 @@ package com.example.discoverdishesapp.MakeDish
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.os.Build
 import android.os.Bundle
@@ -17,6 +18,7 @@ import com.example.discoverdishesapp.MyDishes.MyDish
 import com.example.discoverdishesapp.MyDishes.MyDishDAO
 import com.example.discoverdishesapp.R
 import com.example.discoverdishesapp.databinding.ActivityMakeDishBinding
+import java.io.ByteArrayOutputStream
 
 class MakeDishActivity : AppCompatActivity() {
 
@@ -61,6 +63,8 @@ class MakeDishActivity : AppCompatActivity() {
 
                     // Mostrar en ImageView
                     binding.prueba.setImageBitmap(bitmap)
+                    // Guardar la imagen como ByteArray en myDish
+                    myDish.image = bitmapToByteArray(bitmap)
 
 
                 }
@@ -115,4 +119,10 @@ class MakeDishActivity : AppCompatActivity() {
 
 
     }
+    private fun bitmapToByteArray(bitmap: Bitmap): ByteArray {
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+        return stream.toByteArray()
+    }
+
 }

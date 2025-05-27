@@ -27,6 +27,7 @@ class MyDishDAO (private val context: Context) {
                 put(MyDish.COLUMN_NAME_DIFFICULT,myDish.difficult)
                 put(MyDish.COLUMN_NAME_TIME,myDish.time)
                 put(MyDish.COLUMN_NAME_RATING,myDish.rating)
+                put(MyDish.COLUMN_NAME_IMAGE,myDish.image)
 
             }
             val newRowId = db.insert(MyDish.TABLE_NAME,null,values)
@@ -49,6 +50,7 @@ class MyDishDAO (private val context: Context) {
                 put(MyDish.COLUMN_NAME_DIFFICULT,myDish.difficult)
                 put(MyDish.COLUMN_NAME_TIME,myDish.time)
                 put(MyDish.COLUMN_NAME_RATING,myDish.rating)
+                put(MyDish.COLUMN_NAME_IMAGE,myDish.image)
             }
             //which row to update, based on the id
             val selection= "${MyDish.COLUMN_NAME_ID} = ${myDish.id}"
@@ -88,7 +90,8 @@ class MyDishDAO (private val context: Context) {
                 MyDish.COLUMN_NAME_INSTRUCTIONS,
                 MyDish.COLUMN_NAME_DIFFICULT,
                 MyDish.COLUMN_NAME_TIME,
-                MyDish.COLUMN_NAME_RATING)
+                MyDish.COLUMN_NAME_RATING,
+                MyDish.COLUMN_NAME_IMAGE)
 
             val selection ="${MyDish.COLUMN_NAME_ID} = $id"
             val cursor = db.query(
@@ -107,8 +110,9 @@ class MyDishDAO (private val context: Context) {
                 val difficult = cursor.getString(cursor.getColumnIndexOrThrow(MyDish.COLUMN_NAME_DIFFICULT))
                 val time = cursor.getString(cursor.getColumnIndexOrThrow(MyDish.COLUMN_NAME_TIME))
                 val rating = cursor.getString(cursor.getColumnIndexOrThrow(MyDish.COLUMN_NAME_RATING))
+                val image = cursor.getBlob(cursor.getColumnIndexOrThrow(MyDish.COLUMN_NAME_IMAGE))
 
-                myDish = MyDish(id,name,ingredients,instructions,difficult,time,rating)
+                myDish = MyDish(id,name,ingredients,instructions,difficult,time,rating,image)
             }
             cursor.close()
         } catch (e:Exception){
@@ -132,7 +136,8 @@ class MyDishDAO (private val context: Context) {
                 MyDish.COLUMN_NAME_INSTRUCTIONS,
                 MyDish.COLUMN_NAME_DIFFICULT,
                 MyDish.COLUMN_NAME_TIME,
-                MyDish.COLUMN_NAME_RATING
+                MyDish.COLUMN_NAME_RATING,
+                MyDish.COLUMN_NAME_IMAGE
             )
             //val selection ="id = task.id
             val selection = null
@@ -152,8 +157,10 @@ class MyDishDAO (private val context: Context) {
                 val difficult = cursor.getString(cursor.getColumnIndexOrThrow(MyDish.COLUMN_NAME_DIFFICULT))
                 val time = cursor.getString(cursor.getColumnIndexOrThrow(MyDish.COLUMN_NAME_TIME))
                 val rating = cursor.getString(cursor.getColumnIndexOrThrow(MyDish.COLUMN_NAME_RATING))
+                val image = cursor.getBlob(cursor.getColumnIndexOrThrow(MyDish.COLUMN_NAME_IMAGE))
 
-                val myDish = MyDish(id,name,ingredients,instructions,difficult,time,rating)
+
+                val myDish = MyDish(id,name,ingredients,instructions,difficult,time,rating,image)
                 myDishList.add(myDish)
             }
             cursor.close()

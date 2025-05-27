@@ -1,9 +1,12 @@
 package com.example.discoverdishesapp.MyDishes
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
+import com.example.discoverdishesapp.R
 
 import com.example.discoverdishesapp.databinding.ItemMyDishBinding
 
@@ -40,5 +43,18 @@ class MyDishesViewHolder(val binding: ItemMyDishBinding) :RecyclerView.ViewHolde
         binding.difficultItemMyDish.text = myDish.difficult
         binding.timeItemMyDish.text = myDish.time
         binding.ratingItemMyDish.text = myDish.rating
+
+        if (myDish.image.isNotEmpty()) {
+            val bitmap = byteArrayToBitmap(myDish.image)
+            binding.myDishImage.setImageBitmap(bitmap)
+        } else {
+            // Puedes poner una imagen por defecto si no hay foto
+            binding.myDishImage.setImageResource(R.drawable.ic_launcher_background)
+        }
+
     }
 }
+private fun byteArrayToBitmap(image: ByteArray): Bitmap {
+    return BitmapFactory.decodeByteArray(image, 0, image.size)
+}
+

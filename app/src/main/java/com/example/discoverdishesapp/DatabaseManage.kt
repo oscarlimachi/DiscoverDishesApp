@@ -7,7 +7,7 @@ import com.example.discoverdishesapp.MyDishes.MyDish
 
 class DatabaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null, DATABASE_VERSION) {
     companion object {
-        const val DATABASE_VERSION=1
+        const val DATABASE_VERSION=2
         const val DATABASE_NAME="MyDish.db"
         //Task
         private const val SQL_CREATE_DISH = "" +
@@ -18,8 +18,8 @@ class DatabaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 "${MyDish.COLUMN_NAME_INSTRUCTIONS} TEXT," +
                 "${MyDish.COLUMN_NAME_DIFFICULT} TEXT," +
                 "${MyDish.COLUMN_NAME_TIME} TEXT," +
-                "${MyDish.COLUMN_NAME_RATING} TEXT)"+
-                "${MyDish.COLUMN_NAME_IMAGE}"
+                "${MyDish.COLUMN_NAME_RATING} TEXT,"+
+                "${MyDish.COLUMN_NAME_IMAGE} BLOB)"
         private const val SQL_DELETE_DISH = "DROP TABLE IF EXISTS ${MyDish.TABLE_NAME}"
 
 
