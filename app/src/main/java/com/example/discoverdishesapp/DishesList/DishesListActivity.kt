@@ -46,7 +46,8 @@ class DishesListActivity : AppCompatActivity() {
         binding.recyclerview.layoutManager = LinearLayoutManager(this)
 
         searchDish("a")
-        supportActionBar?.title= "Home"
+        supportActionBar?.title= "Lista de Recetas"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
 

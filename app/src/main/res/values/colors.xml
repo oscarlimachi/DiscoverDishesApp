@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background_dishes">#F2961A</color>
+    <color name="background_dishes_name">#A4F7AC44</color>
+    <color name="background_myList">#FF9500</color>
 </resources>
