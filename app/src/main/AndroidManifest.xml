@@ -24,7 +24,7 @@
             android:name=".DishesList.DishesListActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailActivity"
+            android:name=".DishesList.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

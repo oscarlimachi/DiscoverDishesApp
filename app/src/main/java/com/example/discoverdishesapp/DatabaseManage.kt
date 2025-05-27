@@ -3,6 +3,7 @@ package com.example.discoverdishesapp
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.discoverdishesapp.MyDishes.MyDish
 
 class DatabaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null, DATABASE_VERSION) {
     companion object {
@@ -17,7 +18,8 @@ class DatabaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 "${MyDish.COLUMN_NAME_INSTRUCTIONS} TEXT," +
                 "${MyDish.COLUMN_NAME_DIFFICULT} TEXT," +
                 "${MyDish.COLUMN_NAME_TIME} TEXT," +
-                "${MyDish.COLUMN_NAME_RATING} TEXT)"
+                "${MyDish.COLUMN_NAME_RATING} TEXT)"+
+                "${MyDish.COLUMN_NAME_IMAGE}"
         private const val SQL_DELETE_DISH = "DROP TABLE IF EXISTS ${MyDish.TABLE_NAME}"
 
 

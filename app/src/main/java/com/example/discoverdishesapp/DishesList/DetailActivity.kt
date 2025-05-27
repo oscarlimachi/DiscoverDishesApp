@@ -1,4 +1,4 @@
-package com.example.discoverdishesapp
+package com.example.discoverdishesapp.DishesList
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.discoverdishesapp.R
 import com.example.discoverdishesapp.databinding.ActivityDetailBinding
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
@@ -47,7 +48,7 @@ class DetailActivity : AppCompatActivity() {
 
             when(menuItem.itemId){
                 R.id.menuIngredients -> binding.contentIngredients.root.visibility = View.VISIBLE
-                R.id.menuInstructions-> binding.contentInstructions.root.visibility = View.VISIBLE
+                R.id.menuInstructions -> binding.contentInstructions.root.visibility = View.VISIBLE
                 R.id.menuDetails -> binding.contentDetail.root.visibility = View.VISIBLE
             }
             true

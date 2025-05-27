@@ -1,4 +1,4 @@
-package com.example.discoverdishesapp
+package com.example.discoverdishesapp.DishesList
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

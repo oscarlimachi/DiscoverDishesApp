@@ -1,6 +1,4 @@
-package com.example.discoverdishesapp
-
-import com.google.gson.annotations.SerializedName
+package com.example.discoverdishesapp.DishesList
 
 data class Dish(
     val id: String, // Se cambia para mejor maniobralidad

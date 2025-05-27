@@ -1,4 +1,4 @@
-package com.example.discoverdishesapp
+package com.example.discoverdishesapp.MyDishes
 
 data class MyDish(
 var id: Long = 0,

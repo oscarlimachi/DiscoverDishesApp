@@ -6,10 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.discoverdishesapp.DishesList.AdapterDishes
-import com.example.discoverdishesapp.MyDish
-import com.example.discoverdishesapp.MyDishDAO
 import com.example.discoverdishesapp.R
 import com.example.discoverdishesapp.databinding.ActivityMyDishesBinding
 

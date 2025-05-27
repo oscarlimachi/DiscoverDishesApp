@@ -10,12 +10,8 @@ import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.discoverdishesapp.APIService
-import com.example.discoverdishesapp.DetailActivity
-import com.example.discoverdishesapp.Dish
 import com.example.discoverdishesapp.R
 import com.example.discoverdishesapp.databinding.ActivityDishesListBinding
-import com.example.discoverdishesapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -115,8 +115,22 @@
             android:layout_height="wrap_content"
             android:hint="1-5">
         </EditText>
+
     </LinearLayout>
 
+    <Button
+        android:id="@+id/takeImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DAME_IMAGEN"
+        android:layout_gravity="center_horizontal">
+
+    </Button>
+    <ImageView
+        android:id="@+id/prueba"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+    </ImageView>
 
 
 

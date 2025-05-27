@@ -1,21 +1,34 @@
 package com.example.discoverdishesapp.MakeDish
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.ImageDecoder
+import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
+import android.provider.MediaStore
+
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.discoverdishesapp.MyDish
-import com.example.discoverdishesapp.MyDishDAO
+import com.example.discoverdishesapp.MyDishes.MyDish
+import com.example.discoverdishesapp.MyDishes.MyDishDAO
 import com.example.discoverdishesapp.R
 import com.example.discoverdishesapp.databinding.ActivityMakeDishBinding
 
 class MakeDishActivity : AppCompatActivity() {
 
+
+    private lateinit var pickImageLauncher: ActivityResultLauncher<Intent>
+
     lateinit var binding: ActivityMakeDishBinding
     var myDish: MyDish = MyDish()
 
+    companion object {
+        const val REQUEST_IMAGE_PICK = 1
+    }
 
     lateinit var myDishDAO: MyDishDAO
 
@@ -32,9 +45,31 @@ class MakeDishActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        pickImageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                val imageUri = data?.data
+                imageUri?.let {
+                    val bitmap = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        val source = ImageDecoder.createSource(contentResolver, it)
+                        ImageDecoder.decodeBitmap(source)
+                    } else {
+                        MediaStore.Images.Media.getBitmap(contentResolver, it)
+                    }
+
+                    // Mostrar en ImageView
+                    binding.prueba.setImageBitmap(bitmap)
+
+
+                }
+            }
+        }
+
+
+
         myDishDAO= MyDishDAO(this)
-
-
 
         binding.nameMyDishEditText.setText(myDish.name)
         binding.ingredientsMyDishEditText.setText(myDish.ingredients)
@@ -42,6 +77,15 @@ class MakeDishActivity : AppCompatActivity() {
         binding.difficultMyDishEditText.setText(myDish.difficult)
         binding.timeMyDishEditText.setText(myDish.time)
         binding.ratingMyDishEditText.setText(myDish.rating)
+
+
+
+        //boton de imagen
+        binding.takeImageButton.setOnClickListener {
+            val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            pickImageLauncher.launch(pickIntent)
+
+        }
 
         binding.saveButton.setOnClickListener {
             val name = binding.nameMyDishEditText.text.toString()

@@ -1,9 +1,10 @@
-package com.example.discoverdishesapp
+package com.example.discoverdishesapp.MyDishes
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
+import com.example.discoverdishesapp.DatabaseManager
 
 class MyDishDAO (private val context: Context) {
     private lateinit var db: SQLiteDatabase
