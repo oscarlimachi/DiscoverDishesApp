@@ -1,5 +1,6 @@
 package com.example.discoverdishesapp.MyDishes
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.discoverdishesapp.R
+import com.example.discoverdishesapp.databinding.ActivityDetailMyDishBinding
 import com.example.discoverdishesapp.databinding.ActivityMyDishesBinding
 
 class MyDishesActivity : AppCompatActivity() {
@@ -31,9 +33,17 @@ class MyDishesActivity : AppCompatActivity() {
         }
 
         myDishDAO = MyDishDAO(this)
-
         myDishesList=myDishDAO.findAll()
-        adapter = MyDishesAdapter(myDishesList)
+
+
+        adapter = MyDishesAdapter(myDishesList, {
+            position ->
+            val myDish = myDishesList[position]
+            val intent = Intent(this, DetailMyDishActivity::class.java)
+            intent.putExtra("MY_DISH_ID",myDish.id)
+            startActivity(intent)
+
+        })
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(this)
 

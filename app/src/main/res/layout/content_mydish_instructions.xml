@@ -13,7 +13,8 @@
             android:id="@+id/myDishInstructionsContentTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="35dp"/>
+            android:paddingBottom="35dp"
+            android:text="Las instrucciones"/>
 
     </LinearLayout>
 </ScrollView>

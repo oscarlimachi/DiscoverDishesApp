@@ -12,7 +12,7 @@ import com.example.discoverdishesapp.databinding.ItemMyDishBinding
 
 
 
-class MyDishesAdapter(var items: List<MyDish>): Adapter<MyDishesViewHolder>() {
+class MyDishesAdapter(var items: List<MyDish>, val itemOnClick: (position:Int) -> Unit): Adapter<MyDishesViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,6 +25,9 @@ class MyDishesAdapter(var items: List<MyDish>): Adapter<MyDishesViewHolder>() {
         holder: MyDishesViewHolder,
         position: Int
     ) {
+        holder.itemView.setOnClickListener {
+            itemOnClick(position)
+        }
         val myDish = items[position]
         holder.render(myDish)
     }

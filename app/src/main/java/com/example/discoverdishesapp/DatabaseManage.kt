@@ -7,7 +7,7 @@ import com.example.discoverdishesapp.MyDishes.MyDish
 
 class DatabaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null, DATABASE_VERSION) {
     companion object {
-        const val DATABASE_VERSION=3
+        const val DATABASE_VERSION=4
         const val DATABASE_NAME="MyDish.db"
         //Task
         private const val SQL_CREATE_DISH = "" +
