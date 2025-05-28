@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/detailImageView"
+        android:id="@+id/myDishDetailImageView"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         tools:src="@drawable/ic_launcher_background"
@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailImageView">
+        app:layout_constraintTop_toBottomOf="@id/myDishDetailImageView">
         <!--Navigation-->
         <LinearLayout
             android:background="@color/background_dishes_name"
@@ -36,30 +36,22 @@
             android:orientation="vertical">
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:background="@color/background_dishes"
-                android:id="@+id/bottomNavigationView"
+                android:id="@+id/myDishBottomNavigationView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:menu="@menu/navigation_detail_activity">
+                app:menu="@menu/my_dish_navigation">
             </com.google.android.material.bottomnavigation.BottomNavigationView>
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp">
-                <!--Biography-->
+                <!--Ingredients-->
                 <include
-                    android:id="@+id/contentIngredients"
-                    layout="@layout/detail_content_ingredients"/>
-
-                <!--Appearance-->
+                    android:id="@+id/contentmyDishIngredients"
+                    layout="@layout/content_mydish_igredients"/>
                 <include
-                    android:id="@+id/contentInstructions"
-                    layout="@layout/detail_content_instructions"/>
-
-                <!--Stats-->
-                <include
-                    android:id="@+id/contentDetail"
-                    layout="@layout/detail_content_details"/>
-
+                    android:id="@+id/myDishInstructionsContentTextView"
+                    layout="@layout/content_mydish_instructions"/>
             </FrameLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

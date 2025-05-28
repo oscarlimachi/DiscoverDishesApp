@@ -3,10 +3,13 @@ package com.example.discoverdishesapp.MakeDish
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.ImageDecoder
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.MenuItem
 
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
@@ -70,6 +73,10 @@ class MakeDishActivity : AppCompatActivity() {
                 }
             }
         }
+        //menuBar
+        supportActionBar?.title= "Make a Dish"
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#4CAF50")))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
 
@@ -123,6 +130,15 @@ class MakeDishActivity : AppCompatActivity() {
         val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 30, stream)
         return stream.toByteArray()
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
 }
