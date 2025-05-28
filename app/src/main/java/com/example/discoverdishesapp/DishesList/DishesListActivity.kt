@@ -15,6 +15,10 @@ import com.example.discoverdishesapp.databinding.ActivityDishesListBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import android.graphics.drawable.ColorDrawable
+import android.graphics.Color
+import android.view.MenuItem
+
 
 class DishesListActivity : AppCompatActivity() {
     lateinit var binding: ActivityDishesListBinding
@@ -34,8 +38,6 @@ class DishesListActivity : AppCompatActivity() {
         }
 
 
-
-
         adapter = AdapterDishes(dishList, { position ->
             val dish = dishList[position]
             val intent = Intent(this, DetailActivity::class.java)
@@ -47,9 +49,8 @@ class DishesListActivity : AppCompatActivity() {
 
         searchDish("a")
         supportActionBar?.title= "Lista de Recetas"
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#A4F7AC44")))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
 
 
     }
@@ -86,6 +87,16 @@ class DishesListActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
     }
 }

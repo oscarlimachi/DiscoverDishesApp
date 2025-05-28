@@ -1,5 +1,7 @@
 package com.example.discoverdishesapp.DishesList
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -32,10 +34,12 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
         //Barra menu
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#A4F7AC44")))
+
+
+
 
         val id = intent.getStringExtra(DISH_ID)!!
         getDishById(id)
@@ -55,9 +59,6 @@ class DetailActivity : AppCompatActivity() {
         }
         /*forzamos para a pulsar click para que se oculte*/
         binding.bottomNavigationView.selectedItemId = R.id.menuIngredients
-
-
-
     }
 
     //recuperamos id para utilar datos
@@ -69,8 +70,6 @@ class DetailActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.Main).launch {
                     loadData()
                 }
-
-
             }catch (e: Exception){
                 e.printStackTrace()
             }
@@ -81,7 +80,19 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.title=dish.name
         Picasso.get().load(dish.image).into(binding.detailImageView)
 
-        binding.contentIngredients.ingredientsTextView.text = dish.ingredients.joinToString("\n")
+        val formattedIngredients = dish.ingredients.joinToString("\n") { "· $it" }
+        binding.contentIngredients.ingredientsTextView.text = formattedIngredients
+
+        val formattedInstructions = dish.instructions.joinToString("\n") { "· $it" }
+        binding.contentInstructions.instructionsTextView.text = formattedInstructions
+
+        binding.contentDetail.mealTypeTextView.text = dish.mealType.joinToString()
+        binding.contentDetail.cuisineTextView.text = dish.cuisine
+        binding.contentDetail.timeTextView.text = "${dish.prepTimeMinutes} min."
+        binding.contentDetail.caloriesTextView.text = "${dish.caloriesPerServing} cal."
+        binding.contentDetail.difficultTextView.text = dish.difficulty
+        binding.contentDetail.ratingTextView.text = "${dish.rating}/5"
+
     }
 
 

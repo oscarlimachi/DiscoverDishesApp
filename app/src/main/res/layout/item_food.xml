@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background_dishes_name">
+    android:background="#A4EA8300">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,8 +20,10 @@
                             android:id="@+id/dishImageView"
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
+                            android:importantForAccessibility="no"
                             android:scaleType="centerCrop"
-                            android:src="@color/cardview_dark_background" /> <!-- Imagen por defecto si no hay imagen -->
+                            android:src="@color/cardview_dark_background"
+                            android:background="#FFDCB1"/>
 
                         <!-- Nombre del plato -->
                         <TextView
