@@ -92,18 +92,13 @@ class MakeDishActivity : AppCompatActivity() {
         }
 
         binding.saveButton.setOnClickListener {
-            val name = binding.nameMyDishEditText.text.toString()
-            myDish.name = name
-            val ingredients = binding.ingredientsMyDishEditText.text.toString()
-            myDish.ingredients = ingredients
-            val instructions = binding.instructionsMyDishEditText.text.toString()
-            myDish.instructions = instructions
-            val difficult = binding.difficultMyDishEditText.text.toString()
-            myDish.difficult = difficult
-            val time = binding.timeMyDishEditText.text.toString()
-            myDish.time = time
-            val rating = binding.ratingMyDishEditText.text.toString()
-            myDish.rating = rating
+
+                val name = binding.nameMyDishEditText.text?.toString()?.trim()
+                val ingredients = binding.ingredientsMyDishEditText.text?.toString()?.trim()
+                val instructions = binding.instructionsMyDishEditText.text?.toString()?.trim()
+                val difficult = binding.difficultMyDishEditText.text?.toString()?.trim()
+                val time = binding.timeMyDishEditText.text?.toString()?.toIntOrNull() ?: 0
+                val rating = binding.ratingMyDishEditText.text?.toString()?.toFloatOrNull() ?: 0f
 
 
             /*if (name.isBlank() || ingredients.isBlank()) {
@@ -116,7 +111,6 @@ class MakeDishActivity : AppCompatActivity() {
 
             finish()
         }
-
 
     }
     private fun bitmapToByteArray(bitmap: Bitmap): ByteArray {

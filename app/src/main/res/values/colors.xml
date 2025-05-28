@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background_dishes">#F2961A</color>
     <color name="background_dishes_name">#A4F7AC44</color>
+    <color name="MakeDish">#4CAF50</color>
+    <color name="MyDishes">#D04343</color>
 </resources>
