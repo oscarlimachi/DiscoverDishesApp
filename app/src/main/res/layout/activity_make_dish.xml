@@ -5,130 +5,140 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:context=".MakeDish.MakeDishActivity"
-        android:orientation="vertical"
-        android:paddingBottom="30dp">
-        <!-- nombre de plato -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameMyDishInputLayout"
+        android:orientation="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true"
-            app:hintAnimationEnabled="true"
-            app:boxBackgroundMode="filled"
-            app:boxStrokeWidthFocused="2dp"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Title:">
+            </TextView>
+            <EditText
                 android:id="@+id/nameMyDishEditText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="8"
                 android:layout_height="wrap_content"
-                android:hint="Dish Name"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ingredientsMyDishInputLayout"
+                android:hint="nombre del plato">
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true"
-            app:hintAnimationEnabled="true"
-            app:boxBackgroundMode="filled"
-            app:boxStrokeWidthFocused="2dp"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Ingredients:">
+            </TextView>
+            <EditText
                 android:id="@+id/ingredientsMyDishEditText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="8"
                 android:layout_height="wrap_content"
-                android:hint="Put Yours Ingredients"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/instructionsMyDishInputLayout"
+                android:hint="ingredientes">
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true"
-            app:hintAnimationEnabled="true"
-            app:boxBackgroundMode="filled"
-            app:boxStrokeWidthFocused="2dp"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Instructions:">
+            </TextView>
+            <EditText
                 android:id="@+id/instructionsMyDishEditText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="8"
                 android:layout_height="wrap_content"
-                android:hint="Put The Steps Of Your Plate In Order"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/difficultMyDishInputLayout"
+                android:hint="instructions">
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true"
-            app:hintAnimationEnabled="true"
-            app:boxBackgroundMode="filled"
-            app:boxStrokeWidthFocused="2dp"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Difficult:">
+            </TextView>
+            <EditText
                 android:id="@+id/difficultMyDishEditText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="8"
                 android:layout_height="wrap_content"
-                android:hint="Select The Difficulty"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/timeMyDishInputLayout"
+                android:hint="dificultad">
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true"
-            app:hintAnimationEnabled="true"
-            app:boxBackgroundMode="filled"
-            app:boxStrokeWidthFocused="2dp"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Time:">
+            </TextView>
+            <EditText
                 android:id="@+id/timeMyDishEditText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="8"
                 android:layout_height="wrap_content"
-                android:hint="Minutes To Make Your Dish"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ratingMyDishInputLayout"
+                android:hint="minnute">
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true"
-            app:hintAnimationEnabled="true"
-            app:boxBackgroundMode="filled"
-            app:boxStrokeWidthFocused="2dp"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ratingMyDishEditText"
-                android:layout_width="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint="Rate your Dish"
-                android:autofillHints="3.5"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:text="Rating:">
+            </TextView>
+            <EditText
+                android:id="@+id/ratingMyDishEditText"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:hint="1-5">
+            </EditText>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/takeImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="SELECT IMAGE"
+            android:text="DAME_IMAGEN"
             android:layout_gravity="center_horizontal">
 
         </Button>
         <ImageView
             android:id="@+id/prueba"
             android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginVertical="4dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_height="200dp">
         </ImageView>
+
+
 
         <Button
             android:id="@+id/saveButton"
@@ -136,6 +146,7 @@
             android:layout_height="wrap_content"
             android:text="SAVE"
             android:layout_gravity="center_horizontal">
+
         </Button>
     </LinearLayout>
 </ScrollView>

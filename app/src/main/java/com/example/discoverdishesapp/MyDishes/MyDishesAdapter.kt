@@ -38,11 +38,9 @@ class MyDishesAdapter(var items: List<MyDish>): Adapter<MyDishesViewHolder>() {
 class MyDishesViewHolder(val binding: ItemMyDishBinding) :RecyclerView.ViewHolder(binding.root){
     fun render(myDish: MyDish){
         binding.nameItemMyDish.text = myDish.name
-        binding.ingredientsItemMyDish.text = myDish.ingredients
-        binding.instructionsItemMyDish.text = myDish.instructions
         binding.difficultItemMyDish.text = myDish.difficult
-        binding.timeItemMyDish.text = myDish.time
-        binding.ratingItemMyDish.text = myDish.rating
+        binding.timeItemMyDish.text = "${myDish.time} min."
+        binding.ratingItemMyDish.text = "${myDish.rating}/5"
 
         if (myDish.image.isNotEmpty()) {
             val bitmap = byteArrayToBitmap(myDish.image)
@@ -57,4 +55,3 @@ class MyDishesViewHolder(val binding: ItemMyDishBinding) :RecyclerView.ViewHolde
 private fun byteArrayToBitmap(image: ByteArray): Bitmap {
     return BitmapFactory.decodeByteArray(image, 0, image.size)
 }
-

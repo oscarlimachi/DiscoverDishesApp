@@ -35,5 +35,8 @@ class DishesViewHolder(val binding: ItemFoodBinding) :RecyclerView.ViewHolder(bi
     fun render(dish: Dish){
         binding.dishNameTextView.text = dish.name
         Picasso.get().load(dish.image).into(binding.dishImageView)
+        binding.difficultPresentationTextView.text = dish.difficulty
+        binding.timePresentationTextView.text = "${dish.prepTimeMinutes} min."
+        binding.ratingPresentationTextView.text = "${dish.rating}/5"
     }
 }

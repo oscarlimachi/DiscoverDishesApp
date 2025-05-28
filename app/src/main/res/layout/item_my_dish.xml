@@ -1,60 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="6dp">
-
+    android:layout_height="wrap_content"
+    android:background="#A4EA8300">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="360dp">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="8dp"
+        app:cardElevation="5dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <!-- Imagen del plato -->
             <ImageView
                 android:id="@+id/myDishImage"
-                android:layout_width="200dp"
-                android:layout_height="200dp">
-            </ImageView>
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                android:src="@color/cardview_dark_background"
+                android:background="#FFDCB1"/>
+
+            <!-- Nombre del plato -->
             <TextView
                 android:id="@+id/nameItemMyDish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="nombre"/>
-            <TextView
-                android:id="@+id/ingredientsItemMyDish"
+                android:textAlignment="center"
+                android:text="Nombre del Plato"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:background="@color/background_dishes_name"/>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="ingredientes"/>
-            <TextView
-                android:id="@+id/instructionsItemMyDish"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="instruciones"/>
-            <TextView
-                android:id="@+id/difficultItemMyDish"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="dificultad"/>
-            <TextView
-                android:id="@+id/timeItemMyDish"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="tiempo"/>
-            <TextView
-                android:id="@+id/ratingItemMyDish"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="rating"/>
+                android:orientation="horizontal"
+                android:background="@color/background_dishes">
+                <TextView
+                    android:id="@+id/difficultItemMyDish"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="dificultad"/>
+                <TextView
+                    android:id="@+id/timeItemMyDish"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="tiempo"/>
+                <TextView
+                    android:id="@+id/ratingItemMyDish"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="rating"/>
+            </LinearLayout>
         </LinearLayout>
-
-
     </androidx.cardview.widget.CardView>
 </LinearLayout>

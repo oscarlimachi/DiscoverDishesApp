@@ -48,9 +48,10 @@ class DishesListActivity : AppCompatActivity() {
         binding.recyclerview.layoutManager = LinearLayoutManager(this)
 
         searchDish("a")
-        supportActionBar?.title= "Lista de Recetas"
+        supportActionBar?.title= "RecipesList"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#A4F7AC44")))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
 
     }

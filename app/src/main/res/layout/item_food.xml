@@ -41,18 +41,21 @@
                             android:orientation="horizontal"
                             android:background="@color/background_dishes">
                                 <TextView
+                                    android:id="@+id/difficultPresentationTextView"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:textAlignment="center"
                                     android:text="dificultad"/>
                                 <TextView
+                                    android:id="@+id/timePresentationTextView"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:textAlignment="center"
                                     android:text="tiempo"/>
                                 <TextView
+                                    android:id="@+id/ratingPresentationTextView"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"

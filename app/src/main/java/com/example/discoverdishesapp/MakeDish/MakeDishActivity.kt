@@ -121,7 +121,7 @@ class MakeDishActivity : AppCompatActivity() {
     }
     private fun bitmapToByteArray(bitmap: Bitmap): ByteArray {
         val stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+        bitmap.compress(Bitmap.CompressFormat.PNG, 30, stream)
         return stream.toByteArray()
     }
 
