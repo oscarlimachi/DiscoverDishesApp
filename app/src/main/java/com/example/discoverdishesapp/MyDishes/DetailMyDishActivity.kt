@@ -19,28 +19,31 @@ import com.example.discoverdishesapp.databinding.ActivityDetailMyDishBinding
 class DetailMyDishActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailMyDishBinding
     private lateinit var myDishDAO: MyDishDAO
-
-
-
+    private lateinit var myDish: MyDish
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityDetailMyDishBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         // 1. Obtener el ID del intent
 
-
         val dishId = intent.getLongExtra("MY_DISH_ID", -1)
-        if (dishId != (-1).toLong()) {
+        if (dishId != -1L) {
             // 2. Obtener el plato desde la base de datos
             myDishDAO = MyDishDAO(this)
-            val myDish = myDishDAO.findById(dishId)
+            myDish = myDishDAO.findById(dishId)!!
 
-            if (myDish != null) {
                 // 3. Mostrar los datos en el layout
                 supportActionBar?.title = myDish.name
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
                 val imageBytes = myDish.image
 
@@ -68,11 +71,6 @@ class DetailMyDishActivity : AppCompatActivity() {
                 }
                 /*forzamos para a pulsar click para que se oculte*/
                 binding.myDishBottomNavigationView.selectedItemId = R.id.myDishMenuIngredients
-
-            } else {
-                Toast.makeText(this, "Plato no encontrado", Toast.LENGTH_SHORT).show()
-                finish()
-            }
         } else {
             Toast.makeText(this, "ID inválido", Toast.LENGTH_SHORT).show()
             finish()
@@ -88,13 +86,17 @@ class DetailMyDishActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_delete_my_dish -> {
-
-
+                myDishDAO.delete(myDish)
+                finish()
                 return true
             }
 
             R.id.menu_edit_my_dish -> {
                 Toast.makeText(this, "Edit", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            android.R.id.home -> {
+                finish()
                 return true
             }
 
@@ -103,4 +105,5 @@ class DetailMyDishActivity : AppCompatActivity() {
 
 
     }
+
 }

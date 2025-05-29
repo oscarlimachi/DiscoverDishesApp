@@ -83,8 +83,11 @@ class MakeDishActivity : AppCompatActivity() {
         myDishDAO= MyDishDAO(this)
 
         binding.nameMyDishEditText.setText(myDish.name)
+
+
         binding.ingredientsMyDishEditText.setText(myDish.ingredients)
         binding.instructionsMyDishEditText.setText(myDish.instructions)
+
         binding.difficultMyDishEditText.setText(myDish.difficult)
         binding.timeMyDishEditText.setText(myDish.time)
         binding.ratingMyDishEditText.setText(myDish.rating)
@@ -97,7 +100,6 @@ class MakeDishActivity : AppCompatActivity() {
             pickImageLauncher.launch(pickIntent)
 
         }
-
         binding.saveButton.setOnClickListener {
             val name = binding.nameMyDishEditText.text.toString()
             myDish.name = name

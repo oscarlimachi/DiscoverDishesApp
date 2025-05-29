@@ -12,7 +12,6 @@
         android:layout_height="450dp"
         tools:src="@drawable/ic_launcher_background"
         android:scaleType="centerCrop"
-        android:layout_gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">

@@ -36,6 +36,10 @@ class MyDishesAdapter(var items: List<MyDish>, val itemOnClick: (position:Int) -
         return items.size
     }
 
+    fun updateItems(items: List<MyDish>) {
+        this.items = items
+        notifyDataSetChanged()
+    }
 }
 
 class MyDishesViewHolder(val binding: ItemMyDishBinding) :RecyclerView.ViewHolder(binding.root){

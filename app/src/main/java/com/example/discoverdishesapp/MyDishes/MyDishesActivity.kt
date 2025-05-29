@@ -2,6 +2,7 @@ package com.example.discoverdishesapp.MyDishes
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -33,7 +34,6 @@ class MyDishesActivity : AppCompatActivity() {
         }
 
         myDishDAO = MyDishDAO(this)
-        myDishesList=myDishDAO.findAll()
 
 
         adapter = MyDishesAdapter(myDishesList, {
@@ -48,6 +48,23 @@ class MyDishesActivity : AppCompatActivity() {
         binding.recyclerview.layoutManager = LinearLayoutManager(this)
 
 
+        supportActionBar?.title = "My List Recipe"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        myDishesList=myDishDAO.findAll()
+        adapter.updateItems(myDishesList)
     }
 }
