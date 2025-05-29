@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/difficultyEasy"
+        android:title="Easy"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/difficultyMedium"
+        android:title="Medium"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/difficultyDifficult"
+        android:title="Difficult"
+        app:showAsAction="always"/>
+</menu>

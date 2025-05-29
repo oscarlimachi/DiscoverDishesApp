@@ -111,11 +111,27 @@
                     android:textStyle="bold"
                     android:text="Difficult:">
                 </TextView>
-                <TextView
-                    android:id="@+id/difficultMyDishEditText"
-                    android:layout_width="match_parent"
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Default"/>
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_marginEnd="15dp"
+                        android:id="@+id/menuButtonDifficulty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Difficulty">
+                    </Button>
+                    <TextView
+                        android:id="@+id/difficultMyDishEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Default"/>
+                </LinearLayout>
+
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

@@ -10,6 +10,8 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.MenuItem
+import android.widget.PopupMenu
+import android.widget.Toast
 
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
@@ -88,29 +90,36 @@ class MakeDishActivity : AppCompatActivity() {
         binding.ingredientsMyDishEditText.setText(myDish.ingredients)
         binding.instructionsMyDishEditText.setText(myDish.instructions)
 
-        binding.difficultMyDishEditText.setText(myDish.difficult)
-        button.setOnClickListener { view ->
-            val popup = PopupMenu(this, view)
-            popup.menuInflater.inflate(R.menu.my_popup_menu, popup.menu)
+        binding.difficultMyDishEditText.text=myDish.difficult
 
-            popup.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.option1 -> {
-                        Toast.makeText(this, "Opción 1 seleccionada", Toast.LENGTH_SHORT).show()
+        binding.menuButtonDifficulty.setOnClickListener {
+            val popupMenu = PopupMenu(this, binding.menuButtonDifficulty)
+            popupMenu.inflate(R.menu.menu_difficulty_my_dish)
+            //id de las 2 opciones
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.difficultyEasy -> {
+                        val easy = "Easy"
+                        binding.difficultMyDishEditText.text = easy
                         true
                     }
-                    R.id.option2 -> {
-                        Toast.makeText(this, "Opción 2 seleccionada", Toast.LENGTH_SHORT).show()
+
+                    R.id.difficultyMedium -> {
+                        val medium = "Medium"
+                        binding.difficultMyDishEditText.text = medium
                         true
                     }
+                    R.id.difficultyDifficult-> {
+                        val difficult ="Difficult"
+                        binding.difficultMyDishEditText.text = difficult
+                        true
+                    }
+
                     else -> false
                 }
             }
-
-            popup.show()
+            popupMenu.show()
         }
-
-
         binding.timeMyDishEditText.setText(myDish.time)
         binding.ratingMyDishEditText.setText(myDish.rating)
 
