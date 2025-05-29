@@ -3,12 +3,15 @@ package com.example.discoverdishesapp.MyDishes
 import android.R.attr.bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.discoverdishesapp.DishesList.Dish
 import com.example.discoverdishesapp.R
 import com.example.discoverdishesapp.databinding.ActivityDetailMyDishBinding
 
@@ -17,14 +20,19 @@ class DetailMyDishActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailMyDishBinding
     private lateinit var myDishDAO: MyDishDAO
 
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMyDishBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // 1. Obtener el ID del intent
-        val dishId = intent.getLongExtra("MY_DISH_ID", -1)
 
+
+        val dishId = intent.getLongExtra("MY_DISH_ID", -1)
         if (dishId != (-1).toLong()) {
             // 2. Obtener el plato desde la base de datos
             myDishDAO = MyDishDAO(this)
@@ -45,13 +53,16 @@ class DetailMyDishActivity : AppCompatActivity() {
                 }
 
 
-                binding.myDishBottomNavigationView.setOnItemSelectedListener { menuItem->
+                binding.myDishBottomNavigationView.setOnItemSelectedListener { menuItem ->
                     binding.contentmyDishIngredients.root.visibility = View.GONE
                     binding.myDishInstructionsContentTextView.root.visibility = View.GONE
 
-                    when(menuItem.itemId){
-                        R.id.myDishMenuIngredients -> binding.contentmyDishIngredients.root.visibility = View.VISIBLE
-                        R.id.myDishMenuInstructions -> binding.myDishInstructionsContentTextView.root.visibility = View.VISIBLE
+                    when (menuItem.itemId) {
+                        R.id.myDishMenuIngredients -> binding.contentmyDishIngredients.root.visibility =
+                            View.VISIBLE
+
+                        R.id.myDishMenuInstructions -> binding.myDishInstructionsContentTextView.root.visibility =
+                            View.VISIBLE
                     }
                     true
                 }
@@ -66,6 +77,30 @@ class DetailMyDishActivity : AppCompatActivity() {
             Toast.makeText(this, "ID inválido", Toast.LENGTH_SHORT).show()
             finish()
         }
+
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_mydish, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_delete_my_dish -> {
+
+
+                return true
+            }
+
+            R.id.menu_edit_my_dish -> {
+                Toast.makeText(this, "Edit", Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
+        }
+
+
+    }
 }
