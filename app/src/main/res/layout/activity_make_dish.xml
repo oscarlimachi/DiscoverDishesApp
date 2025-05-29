@@ -63,7 +63,7 @@
                     android:id="@+id/ingredientsMyDishEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Name Of The Ingredients">
+                    android:hint="Use Enter For Each Ingredients">
                 </EditText>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -89,7 +89,7 @@
                     android:id="@+id/instructionsMyDishEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Instructions Of The Dish">
+                    android:hint="Use Enter For Each Instructions">
                 </EditText>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -151,13 +151,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Time:">
+                    android:text="Time in min :">
                 </TextView>
                 <EditText
                     android:id="@+id/timeMyDishEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Preparation Time In Minutes">
+                    android:hint="ejm. 20">
                 </EditText>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
