@@ -89,6 +89,28 @@ class MakeDishActivity : AppCompatActivity() {
         binding.instructionsMyDishEditText.setText(myDish.instructions)
 
         binding.difficultMyDishEditText.setText(myDish.difficult)
+        button.setOnClickListener { view ->
+            val popup = PopupMenu(this, view)
+            popup.menuInflater.inflate(R.menu.my_popup_menu, popup.menu)
+
+            popup.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.option1 -> {
+                        Toast.makeText(this, "Opción 1 seleccionada", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.option2 -> {
+                        Toast.makeText(this, "Opción 2 seleccionada", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    else -> false
+                }
+            }
+
+            popup.show()
+        }
+
+
         binding.timeMyDishEditText.setText(myDish.time)
         binding.ratingMyDishEditText.setText(myDish.rating)
 

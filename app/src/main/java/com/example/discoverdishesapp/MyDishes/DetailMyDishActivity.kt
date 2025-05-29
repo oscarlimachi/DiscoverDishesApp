@@ -1,17 +1,14 @@
 package com.example.discoverdishesapp.MyDishes
 
-import android.R.attr.bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.discoverdishesapp.DishesList.Dish
 import com.example.discoverdishesapp.R
 import com.example.discoverdishesapp.databinding.ActivityDetailMyDishBinding
 
@@ -46,7 +43,7 @@ class DetailMyDishActivity : AppCompatActivity() {
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
                 val imageBytes = myDish.image
-
+            //Imaggen
                 if (imageBytes != null && imageBytes.isNotEmpty()) {
                     val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
                     binding.myDishDetailImageView.setImageBitmap(bitmap)
@@ -54,17 +51,26 @@ class DetailMyDishActivity : AppCompatActivity() {
                     // Imagen por defecto si no hay imagen guardada
                     binding.myDishDetailImageView.setImageResource(R.drawable.ic_launcher_background)
                 }
+            //ingredientes
+            val ingredients=myDish.ingredients
+            val ingredientsList = ingredients.split("\n").map { it.trim() }
+            val ingredientFormated = ingredientsList.joinToString(separator = "\n") { "· $it" }
+            binding.contentMyDishIngredients.MyDishContentIngredientsTextView.text =ingredientFormated
 
-
+            //instrucciones
+            val instructions = myDish.instructions
+            val instructionsList = instructions.split("\n").map { it.trim() }
+            val instructionsFormated = instructionsList.joinToString(separator = "\n") { "· $it" }
+            binding.contentMyDishInstructions.myDishInstructionsContentTextView.text =instructionsFormated
                 binding.myDishBottomNavigationView.setOnItemSelectedListener { menuItem ->
-                    binding.contentmyDishIngredients.root.visibility = View.GONE
-                    binding.myDishInstructionsContentTextView.root.visibility = View.GONE
+                    binding.contentMyDishIngredients.root.visibility = View.GONE
+                    binding.contentMyDishInstructions.root.visibility = View.GONE
 
                     when (menuItem.itemId) {
-                        R.id.myDishMenuIngredients -> binding.contentmyDishIngredients.root.visibility =
+                        R.id.myDishMenuIngredients -> binding.contentMyDishIngredients.root.visibility =
                             View.VISIBLE
 
-                        R.id.myDishMenuInstructions -> binding.myDishInstructionsContentTextView.root.visibility =
+                        R.id.myDishMenuInstructions -> binding.contentMyDishInstructions.root.visibility =
                             View.VISIBLE
                     }
                     true
@@ -75,7 +81,6 @@ class DetailMyDishActivity : AppCompatActivity() {
             Toast.makeText(this, "ID inválido", Toast.LENGTH_SHORT).show()
             finish()
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

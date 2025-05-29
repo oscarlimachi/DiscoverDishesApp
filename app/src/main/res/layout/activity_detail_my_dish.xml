@@ -46,10 +46,10 @@
                 android:layout_marginStart="8dp">
                 <!--Ingredients-->
                 <include
-                    android:id="@+id/contentmyDishIngredients"
+                    android:id="@+id/contentMyDishIngredients"
                     layout="@layout/content_mydish_igredients"/>
                 <include
-                    android:id="@+id/myDishInstructionsContentTextView"
+                    android:id="@+id/contentMyDishInstructions"
                     layout="@layout/content_mydish_instructions"/>
             </FrameLayout>
         </LinearLayout>

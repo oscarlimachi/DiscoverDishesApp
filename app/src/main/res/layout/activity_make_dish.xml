@@ -111,12 +111,12 @@
                     android:textStyle="bold"
                     android:text="Difficult:">
                 </TextView>
-                <EditText
+                <TextView
                     android:id="@+id/difficultMyDishEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Difficulty Of The Dish">
-                </EditText>
+                    android:text="Default"/>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
