@@ -29,12 +29,12 @@
         app:layout_constraintTop_toBottomOf="@id/myDishDetailImageView">
         <!--Navigation-->
         <LinearLayout
-            android:background="@color/background_dishes_name"
+            android:background="#D26363"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:background="@color/background_dishes"
+                android:background="#C42D2D"
                 android:id="@+id/myDishBottomNavigationView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

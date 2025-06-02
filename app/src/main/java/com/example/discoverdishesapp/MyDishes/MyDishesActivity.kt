@@ -1,6 +1,8 @@
 package com.example.discoverdishesapp.MyDishes
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -49,6 +51,7 @@ class MyDishesActivity : AppCompatActivity() {
 
 
         supportActionBar?.title = "My List Recipe"
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#D04343")))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }

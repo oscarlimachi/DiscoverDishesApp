@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.discoverdishesapp.databinding.ActivityLoginBinding
 import com.example.discoverdishesapp.databinding.DialogCreateAccountBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class LoginActivity : AppCompatActivity() {
 
@@ -70,9 +71,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun createAccount() {
         val dialogBinding = DialogCreateAccountBinding.inflate(layoutInflater)
-        val builder = AlertDialog.Builder(this)
-
-        builder.setTitle("Crear Cuenta")
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Crear Cuenta")
             .setView(dialogBinding.root)
             .setPositiveButton(android.R.string.ok) { dialog, _ ->
                 val username = dialogBinding.usernameEditText.text.toString()
@@ -87,13 +87,13 @@ class LoginActivity : AppCompatActivity() {
                     val editor = sharedPreferences.edit()
                     editor.putString("username", username)
                     editor.putString("password", password)
-                    editor.apply()  // Guarda los datos de forma asíncrona
+                    editor.apply()
 
                     Toast.makeText(this, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show()
                 }
             }
-            .setNegativeButton(android.R.string.cancel, null)  // Acción de cancelar
-            .setIcon(R.drawable.ic_launcher_foreground)  // Icono para el diálogo
+            .setNegativeButton(android.R.string.cancel, null)
+            .setIcon(R.drawable.ic_user)
             .show()
     }
 }

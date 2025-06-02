@@ -49,17 +49,14 @@
                 <include
                     android:id="@+id/contentIngredients"
                     layout="@layout/detail_content_ingredients"/>
-
                 <!--Appearance-->
                 <include
                     android:id="@+id/contentInstructions"
                     layout="@layout/detail_content_instructions"/>
-
                 <!--Stats-->
                 <include
                     android:id="@+id/contentDetail"
                     layout="@layout/detail_content_details"/>
-
             </FrameLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

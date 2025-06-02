@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#A4EA8300">
+    android:background="#F34F4F">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,12 +34,12 @@
                 android:text="Nombre del Plato"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
-                android:background="@color/background_dishes_name"/>
+                android:background="#D26363"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@color/background_dishes">
+                android:background="#C42D2D">
                 <TextView
                     android:id="@+id/difficultItemMyDish"
                     android:layout_width="0dp"

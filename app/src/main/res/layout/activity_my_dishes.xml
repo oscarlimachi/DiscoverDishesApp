@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MyDishes.MyDishesActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#F34F4F">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"

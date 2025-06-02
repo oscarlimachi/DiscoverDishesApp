@@ -2,6 +2,8 @@ package com.example.discoverdishesapp.MyDishes
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -42,7 +44,8 @@ class DetailMyDishActivity : AppCompatActivity() {
 
                 // 3. Mostrar los datos en el layout
                 supportActionBar?.title = myDish.name
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#D04343")))
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
                 val imageBytes = myDish.image
             //Imaggen

@@ -5,18 +5,15 @@
         android:id="@+id/menuIngredients"
         android:title="Ingredients"
         android:icon="@drawable/ic_menu_ingredients"
-        app:showAsAction="always">
-    </item>
+        app:showAsAction="always"/>
     <item
         android:id="@+id/menuInstructions"
         android:title="Instructions"
         android:icon="@drawable/ic_menu_instructions"
-        app:showAsAction="always">
-    </item>
+        app:showAsAction="always"/>
     <item
         android:id="@+id/menuDetails"
         android:title="Details"
         android:icon="@drawable/ic_menu_details"
-        app:showAsAction="always">
-    </item>
+        app:showAsAction="ifRoom"/>
 </menu>
