@@ -116,5 +116,26 @@ class DetailMyDishActivity : AppCompatActivity() {
 
 
     }
+    override fun onResume() {
+        super.onResume()
+
+        // Volvemos a cargar el plato desde la base de datos
+        myDish = myDishDAO.findById(myDish.id)!!
+
+        // Actualizamos los datos visibles
+        supportActionBar?.title = myDish.name
+
+        if (myDish.image.isNotEmpty()) {
+            val bitmap = BitmapFactory.decodeByteArray(myDish.image, 0, myDish.image.size)
+            binding.myDishDetailImageView.setImageBitmap(bitmap)
+        }
+
+        binding.contentMyDishIngredients.MyDishContentIngredientsTextView.text =
+            myDish.ingredients.split("\n").joinToString("\n") { "· ${it.trim()}" }
+
+        binding.contentMyDishInstructions.myDishInstructionsContentTextView.text =
+            myDish.instructions.split("\n").joinToString("\n") { "· ${it.trim()}" }
+    }
+
 
 }
