@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DiscoverDishesApp</string>
+    <string name="title_My_Dish">Título:</string>
+    <string name="title_hint_My_Dish">Nombre De Su Plato</string>
+    <string name="ingredients_My_Dish">Ingredientes:</string>
+    <string name="ingredients_hint_My_Dish">Usa Enter Por Cada Ingrediente</string>
+    <string name="instructions_My_Dish">Instrucciones:</string>
+    <string name="instructions_hint_My_Dish">Usa Enter Por Cada Instrucción</string>
+    <string name="difficulty_My_Dish">Dificultad</string>
+    <string name="difficulty_select_My_Dish">Selecciona la dificultad</string>
+    <string name="easy_My_Dish">Fácil</string>
+    <string name="medium_My_Dish">Medio</string>
+    <string name="difficult_My_Dish">Difícil</string>
+    <string name="default_My_Dish">Por Defecto</string>
+    <string name="time_My_Dish">Tiempo en Min:</string>
+    <string name="time_eg_My_Dish">ejm. 20</string>
+    <string name="rating_My_Dish">Puntuación</string>
+    <string name="select_image_My_Dish">SELECIONA UNA IMAGEN</string>
+    <string name="save_My_Dish">GUARDAR PLATO</string>
+</resources>

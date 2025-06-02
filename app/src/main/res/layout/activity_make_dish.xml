@@ -30,13 +30,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Title:">
+                    android:text="@string/title_My_Dish">
                 </TextView>
                 <EditText
                     android:id="@+id/nameMyDishEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Name Of The Dish">
+                    android:hint="@string/title_hint_My_Dish">
                 </EditText>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -57,13 +57,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Ingredients:">
+                    android:text="@string/ingredients_My_Dish">
                 </TextView>
                 <EditText
                     android:id="@+id/ingredientsMyDishEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Use Enter For Each Ingredients">
+                    android:hint="@string/ingredients_hint_My_Dish">
                 </EditText>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -83,13 +83,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Instructions:">
+                    android:text="@string/instructions_My_Dish">
                 </TextView>
                 <EditText
                     android:id="@+id/instructionsMyDishEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Use Enter For Each Instructions">
+                    android:hint="@string/instructions_hint_My_Dish">
                 </EditText>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -109,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Difficult:">
+                    android:text="@string/difficulty_My_Dish">
                 </TextView>
 
                 <LinearLayout
@@ -122,14 +122,14 @@
                         android:id="@+id/menuButtonDifficulty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Select Difficulty">
+                        android:text="@string/difficulty_select_My_Dish">
                     </Button>
                     <TextView
                         android:id="@+id/difficultMyDishEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Default"/>
+                        android:text="@string/default_My_Dish"/>
                 </LinearLayout>
 
 
@@ -151,13 +151,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Time in min :">
+                    android:text="@string/time_My_Dish">
                 </TextView>
                 <EditText
                     android:id="@+id/timeMyDishEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="ejm. 20">
+                    android:hint="@string/time_eg_My_Dish">
                 </EditText>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -177,7 +177,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Rating:">
+                    android:text="@string/rating_My_Dish">
                 </TextView>
                 <EditText
                     android:id="@+id/ratingMyDishEditText"
@@ -193,7 +193,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="SELECT IMAGE"
+            android:text="@string/select_image_My_Dish"
             android:layout_gravity="center_horizontal">
         </Button>
         <ImageView
@@ -208,7 +208,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="SAVE DISH"
+            android:text="@string/save_My_Dish"
             android:layout_gravity="center_horizontal">
         </Button>
     </LinearLayout>

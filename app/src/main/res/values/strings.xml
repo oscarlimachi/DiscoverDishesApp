@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">DiscoverDishesApp</string>
+
+    <string name="title_My_Dish">Title:</string>
+    <string name="title_hint_My_Dish">Name Of The Dish</string>
+    <string name="ingredients_My_Dish">Ingredients:</string>
+    <string name="ingredients_hint_My_Dish">Use Enter For Each Ingredients</string>
+    <string name="instructions_My_Dish">Instructions:</string>
+    <string name="instructions_hint_My_Dish">Use Enter For Each Instructions</string>
+    <string name="difficulty_My_Dish">Difficulty:</string>
+    <string name="difficulty_select_My_Dish">Select Difficulty</string>
+    <string name="easy_My_Dish">Easy</string>
+    <string name="medium_My_Dish">Medium</string>
+    <string name="difficult_My_Dish">Difficult</string>
+    <string name="default_My_Dish">Default</string>
+    <string name="time_My_Dish">Time in Min:</string>
+    <string name="time_eg_My_Dish">e.g. 20</string>
+    <string name="rating_My_Dish">Rating:</string>
+    <string name="select_image_My_Dish">SELECT IMAGE</string>
+    <string name="save_My_Dish">SAVE DISH</string>
 </resources>

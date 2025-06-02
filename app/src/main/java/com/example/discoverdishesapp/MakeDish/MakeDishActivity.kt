@@ -76,7 +76,7 @@ class MakeDishActivity : AppCompatActivity() {
             }
         }
         //menuBar
-        supportActionBar?.title= "Make a Dish"
+
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#4CAF50")))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -85,8 +85,10 @@ class MakeDishActivity : AppCompatActivity() {
         myDishDAO= MyDishDAO(this)
         val id = intent.getLongExtra("MY_DISH_ID",-1)
         if (id == -1L){
+            supportActionBar?.title= "Make a Dish"
             var myDish = MyDish(-1L,"","","","","","", ByteArray(0))
         } else{
+            supportActionBar?.title= "Edit a Dish"
             myDish = myDishDAO.findById(id)!!
         }
 
@@ -101,18 +103,18 @@ class MakeDishActivity : AppCompatActivity() {
             popupMenu.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.difficultyEasy -> {
-                        val easy = "Easy"
+                        val easy = getString(R.string.easy_My_Dish)
                         binding.difficultMyDishEditText.text = easy
                         true
                     }
 
                     R.id.difficultyMedium -> {
-                        val medium = "Medium"
+                        val medium = getString(R.string.medium_My_Dish)
                         binding.difficultMyDishEditText.text = medium
                         true
                     }
                     R.id.difficultyDifficult-> {
-                        val difficult ="Difficult"
+                        val difficult = getString(R.string.difficult_My_Dish)
                         binding.difficultMyDishEditText.text = difficult
                         true
                     }

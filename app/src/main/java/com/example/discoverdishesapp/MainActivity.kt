@@ -49,36 +49,6 @@ class MainActivity : AppCompatActivity() {
         binding.usernameTextView.text = name
 
 
-        binding.menuButton.setOnClickListener {
-            //editar y borrar usuario
-            val popupMenu = PopupMenu(this, binding.menuButton)
-            popupMenu.inflate(R.menu.user_context_menu)
-            //id de las 2 opciones
-            popupMenu.setOnMenuItemClickListener { menuItem ->
-                when (menuItem.itemId) {
-                    R.id.actionEdit -> {
-                        Toast.makeText(this, "Editar usuario", Toast.LENGTH_SHORT).show()
-// Aquí podrías abrir una nueva actividad para editar
-
-                        true
-                    }
-
-                    R.id.actionDelete -> {
-                        Toast.makeText(this, "Editar usuario", Toast.LENGTH_SHORT).show()
-// Aquí podrías abrir una nueva actividad para editar
-
-                        true
-                    }
-
-                    else -> false
-                }
-            }
-            popupMenu.show()
-        }
-
-
-
-
         //OPCIONES PRINCIPALES
         binding.dishesList.setOnClickListener {
             val intent = Intent(this, DishesListActivity::class.java)
