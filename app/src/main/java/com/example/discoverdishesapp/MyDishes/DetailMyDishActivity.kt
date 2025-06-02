@@ -1,5 +1,6 @@
 package com.example.discoverdishesapp.MyDishes
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.Menu
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.discoverdishesapp.MakeDish.MakeDishActivity
 import com.example.discoverdishesapp.R
 import com.example.discoverdishesapp.databinding.ActivityDetailMyDishBinding
 
@@ -62,7 +64,7 @@ class DetailMyDishActivity : AppCompatActivity() {
             val instructionsList = instructions.split("\n").map { it.trim() }
             val instructionsFormated = instructionsList.joinToString(separator = "\n") { "· $it" }
             binding.contentMyDishInstructions.myDishInstructionsContentTextView.text =instructionsFormated
-                binding.myDishBottomNavigationView.setOnItemSelectedListener { menuItem ->
+            binding.myDishBottomNavigationView.setOnItemSelectedListener { menuItem ->
                     binding.contentMyDishIngredients.root.visibility = View.GONE
                     binding.contentMyDishInstructions.root.visibility = View.GONE
 
@@ -98,7 +100,11 @@ class DetailMyDishActivity : AppCompatActivity() {
 
             R.id.menu_edit_my_dish -> {
                 Toast.makeText(this, "Edit", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MakeDishActivity::class.java)
+                intent.putExtra("MY_DISH_ID",myDish.id)
+                startActivity(intent)
                 return true
+
             }
             android.R.id.home -> {
                 finish()

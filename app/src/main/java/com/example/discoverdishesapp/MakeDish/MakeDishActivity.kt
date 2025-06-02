@@ -83,15 +83,17 @@ class MakeDishActivity : AppCompatActivity() {
 
 
         myDishDAO= MyDishDAO(this)
+        val id = intent.getLongExtra("MY_DISH_ID",-1)
+        if (id == -1L){
+            var myDish = MyDish(-1L,"","","","","","", ByteArray(0))
+        } else{
+            myDish = myDishDAO.findById(id)!!
+        }
 
         binding.nameMyDishEditText.setText(myDish.name)
-
-
         binding.ingredientsMyDishEditText.setText(myDish.ingredients)
         binding.instructionsMyDishEditText.setText(myDish.instructions)
-
         binding.difficultMyDishEditText.text=myDish.difficult
-
         binding.menuButtonDifficulty.setOnClickListener {
             val popupMenu = PopupMenu(this, binding.menuButtonDifficulty)
             popupMenu.inflate(R.menu.menu_difficulty_my_dish)
@@ -146,15 +148,14 @@ class MakeDishActivity : AppCompatActivity() {
             myDish.rating = rating
 
 
-            /*if (name.isBlank() || ingredients.isBlank()) {
-                Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }*/
+            if (myDish.id == -1L){
+                myDishDAO.insert(myDish)
 
-            myDishDAO.insert(myDish)
-
-
+            } else{
+                myDishDAO.update(myDish)
+            }
             finish()
+
         }
 
 
